@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+     <link rel="stylesheet" href="style.css" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+     <style>
+       :root {
+         --clr-light: #e5e7e3bb;
+         --clr-dark: #b1adad;
+         --clr-accent: #aad4e9;
+         --fw-reg: 300;
+         --fw-bold: 900;
+         --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
+           0.125em 0.125em 0.25em rgba(0,0,0,.15);
+       }
+         div.container{
+             margin-top:30px;
+             /*margin-left:7%;   % relates to screen minus scroll bars*/
+             margin-left:7vw;
+         }
+         nav{
+             margin-bottom: 30px;
+         }
+         .navbar{
+             background:var(--clr-light);
+         }
+         .center{
+           background: var(--clr-light);
+         }
+         body{
+           background:var(--clr-light);
+         }
+         .center{
+             text-align: center;
+         }
+         </style>
+  <div class="container">
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">Sparta API</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Sparta API <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown link
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+      <script>
+            const url = "https://api.football-data.org/v2/competitions/2021/standings";
+            fetch(url, {
+            method: "GET",
+            withCredentials: true,
+            mode: 'cors',
+            headers: {
+                "X-Auth-Token": "ef72570ff371408f9668e414353b7b2e",
+                "Content-Type": "application/json"
+            }
+            })
+            .then(resp => resp.json())
+            .then(function(data) {
+                console.log(data);
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+
+
+    //     var myHeaders = new Headers();
+    //     myHeaders.append('X-Auth-Token', '700bbe845512489fbe80c732e309fa42');
+
+    //     var myInit = { 
+    //     method: 'GET',
+    //     headers: myHeaders,
+    //     mode: 'cors',
+    //     cache: 'default' 
+    //     };
+
+    //   function fetchData(){
+    //     fetch('https://api.football-data.org/v2/competitions/2021/standings')
+    //     .then(response => { 
+    //         console.log(response)
+    //         if(!response.ok){
+    //             throw ("Error");
+    //         }
+    //         return response.json()
+    //     })
+    //     .then(data => {
+    //         console.log(data)
+    //         // const html = data.map(art => {
+    //         //     return `<div>${art[0].title}</div>`
+    //         // }).join(" ");
+    //         // console.log(html);
+    //         // document.querySelector('.dropdown').insertAdjacentHTML('afterbegin', html) 
+    //     }).catch(error => {
+    //         console.log(error);
+    //     })
+    // };
+    </script>
+    
+</body>
+</html>
